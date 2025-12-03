@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<templates xml:space="preserve">
+
+	<t 
+		t-name="b24_web_appsbar.WebClient"
+		t-inherit="web.WebClient" 
+		t-inherit-mode="extension" 
+	>
+	    <xpath expr="//NavBar" position="after">
+	    	<AppsBar/>
+	    </xpath>
+		<!-- <xpath expr="." position="inside">
+			<AppsBar/>
+		</xpath> -->
+	</t>
+	
+</templates>

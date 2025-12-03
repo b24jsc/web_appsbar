@@ -1,0 +1,453 @@
+:root {
+	--b24-sidebar-small-width: #{$b24-sidebar-small-width};
+	--b24-sidebar-large-width: #{$b24-sidebar-large-width};
+	--b24-sidebar-width: 220px;
+}
+
+
+.b24_apps_sidebar_panel {
+	@include b24-disable-scrollbar();
+	height: 100vh;
+	// background: linear-gradient(135deg, #0c2012 0%, #013a16 49%, #05230e 100%);
+	background: #191A19;
+	// border-radius:  0px 2px 2px 0px;	
+	width: var(--b24-sidebar-width, 0);
+	position: relative;
+	overflow-y: auto; 
+	transition: width 0.3s ease, right 0.3s ease;
+	user-select: none;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* IE/Edge */
+
+	.b24_apps_sidebar {
+		position: relative;
+		display: flex;
+		padding: 0 4px;
+		flex-direction: column;
+		justify-content: space-between;
+		white-space: nowrap;
+		border-right: var(--ControlPanel-border-bottom, 1px solid #2a2a2a);
+
+		.b24_apps_sidebar_menu {
+			padding: 0;
+			// margin-top: 5px;
+			// overflow-y: auto; 
+			// scrollbar-width: none;
+
+			.b24_app_item {
+				display: flex;
+    			justify-content: space-between;
+
+				.b24_apps_sidebar_icon {
+					width: 22px;
+					height: 22px;
+					margin-right: 5px;
+				}
+				.b24_app_toggle_area {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					width: 10%;
+					cursor: pointer;
+				}
+			}
+			li .nav-link {
+				cursor: pointer;
+				border-radius: 5px;
+				font-size: 13px;
+				font-weight: 300;
+				overflow: hidden;
+				padding: 8px 11px;
+				margin: 3px;
+				text-decoration: none;
+				color: $b24-appbar-color;
+				text-overflow: ellipsis;
+				width: 90%;
+			}
+
+			li.active .nav-link,
+			li:hover .nav-link {
+				background: $b24-appbar-active;
+				.b24_apps_sidebar_name {
+					color: $b24-appbar-active-color;
+				}
+			}
+		}
+		.b24_apps_sidebar_menu::-webkit-scrollbar {
+			display: none; /* Chrome, Safari */
+		}
+	}
+	
+
+	.b24_sidebar_resizer {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 15px;
+		height: 100%;
+		padding: 5px;
+		cursor: ew-resize;
+		z-index: 100;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: rgba(255, 255, 255, 0.3) !important;
+		transition: background-color 0.2s;
+
+		&:hover {
+			background-color: rgba(255, 255, 255, 0.1);
+		}
+
+		.b24_resizer_icon {
+			color: white;
+			padding: 5px;
+			font-size: 12px;
+			transform: rotate(90deg);
+			pointer-events: none;
+		}
+	}
+}
+
+.b24_apps_sidebar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+}
+
+.b24_apps_sidebar_name {
+	font-size: 13px;
+	font-weight: 500;
+	color: $b24-appbar-color;
+	padding: 5px;
+    transition: opacity 0.2s ease;
+}
+
+.b24_sidebar_type_large {
+	--b24-sidebar-width: #{$b24-sidebar-large-width};
+	.b24_apps_sidebar_name {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+.b24_sidebar_type_small {
+	--b24-sidebar-width: #{$b24-sidebar-small-width};
+	.b24_apps_sidebar_name {
+		display: none;
+		transition: opacity 0.2s ease;
+	}
+	.b24_apps_sidebar_icon {
+		margin-right: 0 !important;
+	}
+	.b24_apps_sidebar_logo {
+		display: none;
+	}
+	.b24_menus_sidebar {
+		display: none;
+	}
+	.company_name {
+		display: none;
+	}
+	.b24_app_toggle_area {
+		display: none !important;
+	}
+	.search_text {
+		display: none;
+	}
+	.shortcut_text {
+		display: none;
+	}
+	.sidebar_footer {
+		.company_name {
+			display: none;
+		}
+		.author_text {
+			display: none;
+		}
+		.help_space {
+			display: none;
+		}
+	}
+}
+
+.b24_sidebar_type_invisible {
+	--b24-sidebar-width: 0;
+}
+
+.editor_has_snippets_hide_backend_navbar,
+.o_home_menu_background,
+.o_fullscreen {
+	--b24-sidebar-width: 0;
+}
+
+.editor_has_snippets_hide_backend_navbar .b24_apps_sidebar_panel {
+    transition: width 300ms;
+}
+
+@include media-breakpoint-only(md) {
+	.b24_sidebar_type_large {
+		--b24-sidebar-width: #{$b24-sidebar-small-width};
+		.b24_apps_sidebar_name {
+			display: none;
+		}
+		.b24_apps_sidebar_icon {
+			margin-right: 0 !important;
+		}
+		.b24_apps_sidebar_logo {
+			display: none;
+		}
+		.b24_menus_sidebar {
+			display: none;
+		}
+		.company_name {
+			display: none;
+		}
+		.b24_app_toggle_area {
+			display: none !important;
+		}
+		.search_text {
+			display: none;
+		}
+		.shortcut_text {
+			display: none;
+		}
+		.sidebar_footer {
+			.company_name {
+				display: none;
+			}
+			.author_text {
+				display: none;
+			}
+			.help_space {
+				display: none;
+			}
+		}
+	}
+}
+
+@include media-breakpoint-down(md) {
+	.b24_sidebar_type_large, .b24_sidebar_type_small {
+		--b24-sidebar-width: 0;
+	}
+	.b24_apps_sidebar_panel {
+		display: none !important;
+	}
+}
+
+// thu nhỏ - hiện sidebar menu
+.b24_sidebar_toggle {
+    display: flex;
+    align-items: center;
+    // height: 70px;
+	padding-top: 3px;   
+	padding-bottom: 5px;
+	padding-left: 6px;
+	cursor: pointer;
+	justify-content: flex-start;
+	border-bottom: 1px solid #d3d3d36b;
+
+    .toggle_menu_icon {
+        font-size: 24px;
+        color: $b24-appbar-color;
+    }
+	
+}
+
+.company_icon {
+	border-radius: 30%;
+	height: 30px;
+    width: 30px;
+    margin: 5px;
+    margin-right: 8px;	
+}
+.company_name {
+	font-size: 15px;
+	font-weight: bold;
+	color: $b24-appbar-active-color;
+}
+
+// Search Space
+.search_space {
+	display: flex;
+    align-items: center;
+	justify-content: flex-start;
+	// height: 60px;
+	padding: 5px;
+	padding-left: 6px;
+	border-bottom: 1px solid #d3d3d36b;
+
+	.search_icon {
+		display: flex;
+		padding: 2px;
+		align-items: center;
+		justify-content: center;
+		font-size: 20px;
+		color: $b24-appbar-color;
+		margin: 5px;
+	}
+
+	.search_text {
+		width: 60%;
+		font-size: 13px;
+		margin-left: 7px;
+		color: $b24-appbar-color;
+	}
+
+	.shortcut_text {
+		font-size: 15px;
+		border-radius: 2px;
+		background-color: #34743366;
+    	color: #FFC107;		
+		padding: 3px;
+		margin: 2px;
+
+	}
+}
+
+// b24 resize
+// .b24_sidebar_resizer {
+// 	position: absolute;
+// 	top: 0;
+// 	right: 0;
+// 	width: 15px;
+// 	height: 100%;
+// 	padding: 10px;
+// 	cursor: ew-resize;
+// 	z-index: 100;
+// 	display: flex;
+// 	align-items: center;
+// 	justify-content: center;
+// 	background-color: rgba(255, 255, 255, 0.03);
+// 	transition: background-color 0.2s;
+// }
+
+// .b24_sidebar_resizer:hover {
+// 	background-color: rgba(255, 255, 255, 0.1);
+// }
+
+// .b24_resizer_icon {
+// 	color: white;
+// 	padding: 5px;
+// 	font-size: 12px;
+// 	transform: rotate(90deg); /* Để icon nằm ngang nếu muốn */
+// 	pointer-events: none; /* Giúp không cản event drag */
+// }
+
+// Menu items
+.b24_menus_sidebar {
+	margin-left: 1rem;
+	padding-left: 10px;
+	border-left: 1px solid #ddd;
+	transition: opacity 0.2s ease;
+}
+.b24_toggle_icon {
+    font-size: 0.8rem;
+    color: #999;
+}
+.b24_menu_item {
+	list-style: none;
+	padding: 5px 10px;
+	transition: all 0.2s;
+	border-radius: 5px;
+}
+.b24_menu_item.has-children > .b24_menu_title {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+	font-weight: 500;
+	color: $b24-appbar-color;
+	padding: 5px;
+	border-radius: 2px;
+}
+
+
+.b24_menu_title:hover {
+	background-color: $b24-appbar-active;
+	color: $b24-appbar-active-color;
+}
+.b24_menu_name {
+	flex-grow: 1;
+	font-size: 13px;
+}
+.b24_toggle_icon {
+	transition: transform 0.2s;
+}
+.b24_submenu_list {
+    margin-left: 1rem;
+    padding-left: 0.5rem;
+    border-left: 1px solid #ddd;
+}
+.b24_menu_leaf {
+	display: block;
+	padding: 5px 15px;
+	color: $b24-appbar-color;
+	text-decoration: none;
+	border-radius: 5px;
+	font-size: 13px;
+}
+.b24_menu_leaf:hover {
+	background-color: $b24-appbar-active;
+	font-weight: bold;
+	color: $b24-appbar-active-color;
+}
+.b24_menu_leaf.active {
+	background-color: $b24-appbar-active;
+	font-weight: bold;
+	color: $b24-appbar-active-color;
+}
+
+// Sidebar Footer
+.b24_footer_row {
+	padding: 8px 12px;
+	border-top: 1px solid #ddd;
+	display: flex; 
+	align-items: center; 
+}
+.help_space {
+	text-decoration: none;
+    color: inherit;
+
+	.question_icon {
+		display: flex;
+		padding: 2px;
+		align-items: center;
+		justify-content: center;
+		font-size: 25px !important;
+		color: $b24-appbar-color;
+		margin: 5px;
+	}
+}
+
+.sidebar_footer {
+	display: flex;
+	height: 60px;
+	border-top: 1px solid #d3d3d36b;
+	padding: 5px;
+	justify-content: flex-start;
+	align-items: center; 
+	text-decoration: none; 
+	bottom: 0;
+    position: sticky;
+    // z-index: 99;
+	backdrop-filter: blur(7px);
+	color: inherit;
+
+		.b24_company {
+		width: 90%;
+		display: flex;
+
+		> div {
+			margin-left: 5px;
+		}
+	}
+	.author_text {
+		color: $b24-appbar-color;
+		font-size: 12px;
+	}
+}
+.sidebar_header {
+	top: 0;
+    position: sticky;
+    // z-index: 99;
+	backdrop-filter: blur(7px);
+}
