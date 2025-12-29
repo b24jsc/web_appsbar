@@ -1,7 +1,7 @@
 import { patch } from '@web/core/utils/patch';
 
 import { WebClient } from '@web/webclient/webclient';
-import { AppsBar } from '@b24_web_appsbar/webclient/appsbar/appsbar';
+import { AppsBar } from '@web_appsbar/webclient/appsbar/appsbar';
 
 patch(WebClient, {
     components: {

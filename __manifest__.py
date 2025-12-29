@@ -24,43 +24,43 @@
     ],
     'assets': {
         'web._assets_primary_variables': [
-            'b24_web_appsbar/static/src/scss/variables.scss',
+            'web_appsbar/static/src/scss/variables.scss',
         ],
         'web._assets_backend_helpers': [
-            'b24_web_appsbar/static/src/scss/mixins.scss',
+            'web_appsbar/static/src/scss/mixins.scss',
         ],
         'web.assets_web_dark': [
             (
                 'after',
-                'b24_web_appsbar/static/src/scss/variables.scss',
-                'b24_web_appsbar/static/src/scss/variables.dark.scss',
+                'web_appsbar/static/src/scss/variables.scss',
+                'web_appsbar/static/src/scss/variables.dark.scss',
             ),
         ],
         'web.assets_backend': [
             (
                 'after',
                 'web/static/src/webclient/webclient.js',
-                'b24_web_appsbar/static/src/webclient/webclient.js',
+                'web_appsbar/static/src/webclient/webclient.js',
             ),
             (
                 'after',
                 'web/static/src/webclient/webclient.xml',
-                'b24_web_appsbar/static/src/webclient/webclient.xml',
+                'web_appsbar/static/src/webclient/webclient.xml',
             ),
             (
                 'after',
                 'web/static/src/webclient/webclient.js',
-                'b24_web_appsbar/static/src/webclient/menus/app_menu_service.js',
+                'web_appsbar/static/src/webclient/menus/app_menu_service.js',
             ),
             (
                 'after',
                 'web/static/src/webclient/webclient.js',
-                'b24_web_appsbar/static/src/webclient/appsbar/appsbar.js',
+                'web_appsbar/static/src/webclient/appsbar/appsbar.js',
             ),
-            'b24_web_appsbar/static/src/webclient/webclient.scss',
-            'b24_web_appsbar/static/src/webclient/appsbar/appsbar.xml',
-            'b24_web_appsbar/static/src/webclient/appsbar/appsbar.scss',
-            'b24_web_appsbar/static/description/company_icon.png',
+            'web_appsbar/static/src/webclient/webclient.scss',
+            'web_appsbar/static/src/webclient/appsbar/appsbar.xml',
+            'web_appsbar/static/src/webclient/appsbar/appsbar.scss',
+            'web_appsbar/static/description/company_icon.png',
         ],
     },
     'images': [

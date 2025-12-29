@@ -37,7 +37,7 @@
 		</li>
 	</t>
 
-	<t t-name="b24_web_appsbar.AppsBar">
+	<t t-name="web_appsbar.AppsBar">
 		<div class="b24_apps_sidebar_panel">
 			<div class="b24_apps_sidebar">
 				<div class="sidebar_header">

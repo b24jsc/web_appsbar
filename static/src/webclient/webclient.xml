@@ -3,7 +3,7 @@
 <templates xml:space="preserve">
 
 	<t 
-		t-name="b24_web_appsbar.WebClient"
+		t-name="web_appsbar.WebClient"
 		t-inherit="web.WebClient" 
 		t-inherit-mode="extension" 
 	>

@@ -3,7 +3,7 @@ import { useService } from '@web/core/utils/hooks';
 import { Component, onWillUnmount, useState, onMounted } from '@odoo/owl';
 
 export class AppsBar extends Component {
-	static template = 'b24_web_appsbar.AppsBar';
+	static template = 'web_appsbar.AppsBar';
     static props = {};
 
 	setup() {
@@ -11,7 +11,7 @@ export class AppsBar extends Component {
         this.menuService = useService("menu");
         this.appMenuService = useService('app_menu');
         this.actionService = useService('action');
-        this.defaultCompanyImage = "/b24_web_appsbar/static/description/company_icon.png";
+        this.defaultCompanyImage = "/web_appsbar/static/description/company_icon.png";
         this.sidebarImageUrl = "";
         document.body.classList.add("b24_sidebar_type_large");
 
