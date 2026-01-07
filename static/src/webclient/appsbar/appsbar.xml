@@ -43,7 +43,7 @@
 				<div class="sidebar_header">
 					<div class="b24_sidebar_toggle" t-on-click.prevent="toggleSidebar">
 						<img class="company_icon" t-att-src="sidebarImageUrl" alt="Logo"/>
-						<span class="company_name" > 
+						<span class="company_name text-truncate"> 
 							<t t-esc="companyName"/>
 						</span>
 					</div>
@@ -51,8 +51,7 @@
 						<i class="fa fa-search search_icon" role="button" title="Search"></i>
 						<span class="search_text">Search</span>
 						<div>
-							<span class="shortcut_text">Ctrl</span>
-							<span class="shortcut_text">K</span>
+							<span class="shortcut_text">Ctrl + K</span>
 						</div>
 					</div>
 				</div>
