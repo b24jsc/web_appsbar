@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <odoo>
-	
+
     <record id="view_res_users_form" model="ir.ui.view">
         <field name="name">res.users.form</field>
         <field name="model">res.users</field>
         <field name="inherit_id" ref="base.view_users_form_simple_modif" />
         <field name="arch" type="xml">
-             <xpath expr="//field[@name='tz']" position="after">
-                <field name="sidebar_type" readonly="0"/>
+            <xpath expr="//field[@name='tz']" position="after">
+                <field name="sidebar_type" readonly="0" />
+
+                <!-- sidebar user sorting -->
+                <field name="sidebar_app_order" invisible="1" />
+                <div class="o_cell o_wrap_label text-break text-900 d-flex justify-content-between me-25">
+                    <span class="o-form-label">Reset sidebar sorting</span>
+                    <button name="action_reset_sidebar_order"
+                        type="object"
+                        string="Reset"
+                        class="btn btn-secondary btn-sm w-25"
+                        confirm="Are you sure you want to revert the sidebar apps to their default order?"
+                        icon="fa-undo" />
+                </div>
             </xpath>
         </field>
     </record>

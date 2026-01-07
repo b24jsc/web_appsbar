@@ -53,6 +53,9 @@
 					width: 10%;
 					cursor: pointer;
 				}
+				.b24_drag_handle{
+					color: #e7e6e917;
+				}
 			}
 			li .nav-link {
 				cursor: pointer;
@@ -146,6 +149,9 @@
 	.b24_menus_sidebar {
 		display: none;
 	}
+	.b24_drag_handle {
+		display: none;
+	}
 	.company_name {
 		display: none;
 	}
@@ -198,6 +204,9 @@
 			display: none;
 		}
 		.b24_menus_sidebar {
+			display: none;
+		}
+		.b24_drag_handle {
 			display: none;
 		}
 		.company_name {
@@ -367,6 +376,13 @@
 	background-color: $b24-appbar-active;
 	color: $b24-appbar-active-color;
 }
+.b24_drag_handle:hover{
+	color: #e7e6e99e !important;
+    cursor: grab !important;
+    pointer-events: all !important; /* Ensure it catches the mouse */
+    z-index: 100; /* Put it above the links */
+}
+
 .b24_menu_name {
 	flex-grow: 1;
 	font-size: 13px;

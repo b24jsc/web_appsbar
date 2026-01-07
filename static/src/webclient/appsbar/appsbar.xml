@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <templates xml:space="preserve">
 	<t t-name="NestedMenuTree">
 		<li t-attf-class="b24_menu_item {{ menu.childrenTree?.length ? 'has-children' : '' }}">
-			
+
 			<!-- Nếu có children: hiển thị toggle -->
 			<div t-if="menu.childrenTree?.length"
 				class="b24_menu_title"
@@ -57,32 +57,34 @@
 					</div>
 				</div>
 
-				<ul class="b24_apps_sidebar_menu">
-					<t t-foreach="this.appMenuService.getAppsMenuItems()" t-as="app" t-key="app.id">
-						<li t-attf-class="nav-item {{ app.id === this.appMenuService.getCurrentApp()?.id ? 'active' : '' }}">
-							<div class="b24_app_item" >
-								<a 
-									t-on-click.prevent="() => this._onAppClick(app)"
-									t-att-data-action-id="app.actionID"
-									t-att-title="app.label"
-									class="nav-link" 
-									role="menuitem">
-									<img 
-										t-if="app.webIconData" 
+				<ul class="b24_apps_sidebar_menu" t-ref="apps-container">
+					<t t-foreach="this.sortedApps" t-as="app" t-key="app.id">
+
+						<!-- this part is draggable -->
+						<li t-attf-class="nav-item {{ app.id === this.appMenuService.getCurrentApp()?.id ? 'active' : '' }}" 
+							t-att-data-id="app.id">
+							
+							<div class="b24_app_item">
+								<i class="fa-sharp fa-solid fa-grip-dots-vertical b24_drag_handle fa-lg p-1 ps-2 lh-lg"></i>
+								<a t-on-click.prevent="() => this._onAppClick(app)"
+								t-att-data-action-id="app.actionID"
+								t-att-title="app.label"
+								class="nav-link" 
+								role="menuitem">
+									
+									<img t-if="app.webIconData" 
 										class="b24_apps_sidebar_icon" 
-										t-att-src="app.webIconData"
-									/>
-									<img  
-										t-else="" 
+										t-att-src="app.webIconData"/>
+									<img t-else="" 
 										class="b24_apps_sidebar_icon" 
-										src="/base/static/description/icon.png"
-									/>
+										src="/base/static/description/icon.png"/>
+									
 									<span class="b24_apps_sidebar_name">
 										<t t-out="app.label"/>
 									</span>
 								</a>
-								<div 
-									class="b24_app_toggle_area"
+
+								<div class="b24_app_toggle_area"
 									t-on-click.prevent="() => this.toggleAppMenu(app.id)">
 									<i t-attf-class="fa {{ this.isMenuOpen(app.id) ? 'fa-chevron-down' : 'fa-chevron-right' }} b24_toggle_icon"></i>
 								</div>

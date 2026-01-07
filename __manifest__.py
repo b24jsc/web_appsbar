@@ -57,6 +57,7 @@
                 'web/static/src/webclient/webclient.js',
                 'web_appsbar/static/src/webclient/appsbar/appsbar.js',
             ),
+            'web_appsbar/static/lib/sortable.min.js',
             'web_appsbar/static/src/webclient/webclient.scss',
             'web_appsbar/static/src/webclient/appsbar/appsbar.xml',
             'web_appsbar/static/src/webclient/appsbar/appsbar.scss',
